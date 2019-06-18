@@ -15,6 +15,7 @@ class CameraViewController: UIViewController {
     let client = CreatePostClient()
     var currentLocation: CLLocation?
 
+    //En este View Controller Noemí va a hacer lo referente al acceso a la cámara/biblioteca y selección de archivos
     override func viewDidLoad() {
         super.viewDidLoad()
         enableBasicLocationServices()

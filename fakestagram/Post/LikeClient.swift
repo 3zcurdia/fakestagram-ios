@@ -28,7 +28,7 @@ class LikeUpdaterClient {
     }
 
     func like() -> Post {
-        guard let postId = post.id else { return post }
+        guard let postId = self.post.id else { return self.post }
         client.request("POST", path: "\(basePath)/\(postId)/like", body: nil, completionHandler: onSuccessLike(response:data:), errorHandler: onError(error:))
         var post = self.post
         post.likesCount += 1
@@ -37,7 +37,7 @@ class LikeUpdaterClient {
     }
 
     func dislike() -> Post {
-        guard let postId = post.id else { return post }
+        guard let postId = self.post.id else { return self.post }
         client.request("DELETE", path: "\(basePath)/\(postId)/like", body: nil, completionHandler: onSuccessDislike(response:data:), errorHandler: onError(error:))
         var post = self.post
         post.likesCount -= 1
