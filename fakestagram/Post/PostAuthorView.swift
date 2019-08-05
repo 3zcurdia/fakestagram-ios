@@ -20,7 +20,7 @@ class PostAuthorView: UIView {
     }()
     private let nameLbl: UILabel = {
         let lbl = UILabel()
-        lbl.text = "Lorem Ipsum"
+        lbl.text = "Lorena"
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()

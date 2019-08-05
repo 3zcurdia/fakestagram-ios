@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5AC18EDA22F74FA00013F5C4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC18ED922F74FA00013F5C4 /* SearchViewController.swift */; };
+		5AC18EDE22F750A60013F5C4 /* ExploreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC18EDD22F750A60013F5C4 /* ExploreCollectionViewCell.swift */; };
+		5AC18EE222F759A40013F5C4 /* SearchBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC18EE122F759A40013F5C4 /* SearchBarContainerView.swift */; };
+		5AC18EE422F76A9C0013F5C4 /* CollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC18EE322F76A9C0013F5C4 /* CollectionLayout.swift */; };
 		6DA8D2E80989EB34B19B14AC /* Pods_fakestagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB682017168E815C3702E877 /* Pods_fakestagramTests.framework */; };
 		C5F0AE5BFEFA190E4654389C /* Pods_fakestagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCBD436F67D6D1260761E3B /* Pods_fakestagram.framework */; };
 		E01AC9D32273C39900D5F13C /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01AC9D22273C39900D5F13C /* ImageStorage.swift */; };
@@ -69,6 +73,10 @@
 		47097B22468FF7B662FF3777 /* Pods-fakestagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fakestagramTests.debug.xcconfig"; path = "Target Support Files/Pods-fakestagramTests/Pods-fakestagramTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4A0B51E0DC755D4EB19F30BE /* Pods-fakestagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fakestagram.debug.xcconfig"; path = "Target Support Files/Pods-fakestagram/Pods-fakestagram.debug.xcconfig"; sourceTree = "<group>"; };
 		4ACE34932C95256A6D481968 /* Pods-fakestagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fakestagram.release.xcconfig"; path = "Target Support Files/Pods-fakestagram/Pods-fakestagram.release.xcconfig"; sourceTree = "<group>"; };
+		5AC18ED922F74FA00013F5C4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		5AC18EDD22F750A60013F5C4 /* ExploreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCollectionViewCell.swift; sourceTree = "<group>"; };
+		5AC18EE122F759A40013F5C4 /* SearchBarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarContainerView.swift; sourceTree = "<group>"; };
+		5AC18EE322F76A9C0013F5C4 /* CollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionLayout.swift; sourceTree = "<group>"; };
 		7EA2AA10A7700704C7454B58 /* Pods-fakestagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fakestagramTests.release.xcconfig"; path = "Target Support Files/Pods-fakestagramTests/Pods-fakestagramTests.release.xcconfig"; sourceTree = "<group>"; };
 		E01AC9D22273C39900D5F13C /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
 		E01AC9D42273C79E00D5F13C /* DataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
@@ -151,6 +159,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5AC18ED822F74F7A0013F5C4 /* Noemi */ = {
+			isa = PBXGroup;
+			children = (
+				5AC18ED922F74FA00013F5C4 /* SearchViewController.swift */,
+				5AC18EDD22F750A60013F5C4 /* ExploreCollectionViewCell.swift */,
+				5AC18EE122F759A40013F5C4 /* SearchBarContainerView.swift */,
+				5AC18EE322F76A9C0013F5C4 /* CollectionLayout.swift */,
+			);
+			path = Noemi;
+			sourceTree = "<group>";
+		};
 		D593694319D8573449FDD448 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +244,7 @@
 		E0DDF9EF223DF640009EB136 /* fakestagram */ = {
 			isa = PBXGroup;
 			children = (
+				5AC18ED822F74F7A0013F5C4 /* Noemi */,
 				E0BB974B223F45DE00D028A1 /* Account */,
 				E0F4B040227003F1000975C0 /* Profile */,
 				E0DDFA16223DFCB6009EB136 /* Post */,
@@ -508,15 +528,19 @@
 				E0DDFA18223DFCC8009EB136 /* Post.swift in Sources */,
 				E07D903322623A00004BCDE3 /* TimelineClient.swift in Sources */,
 				E0DDFA2E223E0EF2009EB136 /* TimelineViewController.swift in Sources */,
+				5AC18EE222F759A40013F5C4 /* SearchBarContainerView.swift in Sources */,
 				E01AC9D32273C39900D5F13C /* ImageStorage.swift in Sources */,
 				E0BB9755223F5EDA00D028A1 /* Name.swift in Sources */,
 				E0DDF9F1223DF640009EB136 /* AppDelegate.swift in Sources */,
 				E0BB9748223F444B00D028A1 /* Client.swift in Sources */,
+				5AC18EE422F76A9C0013F5C4 /* CollectionLayout.swift in Sources */,
+				5AC18EDA22F74FA00013F5C4 /* SearchViewController.swift in Sources */,
 				E0DDFA27223E029A009EB136 /* PostAuthorView.swift in Sources */,
 				E0BB9751223F57C400D028A1 /* Date+timestamp.swift in Sources */,
 				E07D9031226238C5004BCDE3 /* AccountClient.swift in Sources */,
 				E0BB974A223F449700D028A1 /* Secrets.swift in Sources */,
 				E0BB9757223F6A3500D028A1 /* AccountRepo.swift in Sources */,
+				5AC18EDE22F750A60013F5C4 /* ExploreCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
