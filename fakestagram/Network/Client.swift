@@ -15,14 +15,20 @@ struct Client {
     let baseURLComponents: URLComponents
     public var accept = "application/json"
     public var contentType = "application/json"
-    
+
     init() {
         self.baseURLComponents = URLComponents(string: Secrets.host.value!)!
     }
 
     func request(_ method: String, path: String, body: Data?, completionHandler: completionHandler?, errorHandler: errorHandler?) {
+        request(method, path: path, queryItems: nil, body: body, completionHandler: completionHandler, errorHandler: errorHandler)
+    }
+
+    func request(_ method: String, path: String, queryItems: [String: String]?, body: Data?, completionHandler: completionHandler?, errorHandler: errorHandler?) {
         var requestURLComponents = baseURLComponents
         requestURLComponents.path = path
+        requestURLComponents.queryItems = castQueryItems(queryItems: queryItems)
+
         guard let url = requestURLComponents.url else {
             print("[ERROR] Invalid path: \(path)")
             return
@@ -32,18 +38,29 @@ struct Client {
         request.setValue(contentType, forHTTPHeaderField: "Content-Type")
         request.httpMethod = method
         request.httpBody = body
-        if let token = Secrets.uuid.value {
+        if let token = Secrets.token.value {
             request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
-        
+
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil {
                 errorHandler?(error)
                 return
             }
             let response = HTTPResponse(reponse: response as! HTTPURLResponse)
-            completionHandler?(response, data)
+            DispatchQueue.main.async {
+                completionHandler?(response, data)
+            }
         }
         task.resume()
+    }
+
+    private func castQueryItems(queryItems: [String: String]?) -> [URLQueryItem] {
+        guard let rawItems = queryItems, !rawItems.isEmpty else { return [] }
+        var items = [URLQueryItem]()
+        for (key, value) in rawItems {
+            items.append(URLQueryItem(name: key, value: value))
+        }
+        return items
     }
 }
