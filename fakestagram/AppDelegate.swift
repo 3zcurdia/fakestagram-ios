@@ -13,8 +13,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        UserDefaults.standard.removeObject(forKey: Secrets.account)
+        
+        StorageType.permanent.ensureExists()
+        StorageType.cache.ensureExists()
+
         AccountRepo.shared.loadOrCreate { (account) in
-            print(account)
+            if let uuid = account.id {
+                _ = Secrets.token.set(value: uuid)
+            }
+//            print(Secrets.token.value)
+            UserDefaults.standard.set(account.name, forKey: "name")
         }
         return true
     }
@@ -41,4 +50,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 }
-

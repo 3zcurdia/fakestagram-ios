@@ -9,15 +9,26 @@
 import Foundation
 
 enum Secrets {
+    static let account = "com.ruizro.fakestagram"
     case host
-    case uuid
+    case token
     
     var value: String? {
         switch self {
         case .host:
             return "https://fakestagram-api.herokuapp.com/"
-        case .uuid:
-            return nil
+        case .token:
+           return KeychainService.getValue(forService: "authentication", account:  Secrets.account)
+        }
+    }
+
+    func set(value: String) -> Bool {
+        switch self {
+        case .token:
+            KeychainService.setValue(value: value, forService: "authentication", account: Secrets.account)
+            return true
+        default:
+            return false
         }
     }
 }

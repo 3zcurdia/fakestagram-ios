@@ -7,13 +7,46 @@
 //
 
 import Foundation
+import UIKit
+import CoreLocation
 
-struct Post: Codable {
-    let id: String?
+struct Post: Codable  {
+    let id: Int?
     let title: String
-    let imageURL: String?
+    let imageUrl: String?
     let author: Author?
-    let likesCount: Int
-    let commentsCount: Int
+    var likesCount: Int
+    var commentsCount: Int
     let createdAt: String
+    var liked: Bool
+    var location:String
+    var comments:[Comment]?
+    
+
+    func likesCountText() -> String {
+        return "\(likesCount)"
+    }
+
+    func commentsCountText() -> String {
+        return "\(commentsCount)"
+    }
+
+    func load(_ image: @escaping (UIImage) -> Void) {
+        let cache = ImageCache(filename: "image-\(self.id!).jpg")
+        if let img = cache.load() {
+            image(img)
+            return
+        }
+        guard let urlString = imageUrl, let url = URL(string: urlString) else { return }
+        DispatchQueue.global(qos: .background).async {
+            if let data = try? Data(contentsOf: url), let img = UIImage(data: data) {
+                DispatchQueue.main.async { image(img) }
+                _ = cache.save(image: img)
+            }
+        }
+    }
 }
+
+
+
+
